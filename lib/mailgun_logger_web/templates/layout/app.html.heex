@@ -70,6 +70,13 @@
       </div>
     </header>
     <main>
+      <%# flash meldingen (info en error) %>
+      <%= if Phoenix.Flash.get(@flash, :info) do %>
+        <div class="alert alert-info" role="info"><%= Phoenix.Flash.get(@flash, :info) %></div>
+      <% end %>
+      <%= if Phoenix.Flash.get(@flash, :error) do %>
+        <div class="alert alert-danger" role="alert"><%= Phoenix.Flash.get(@flash, :error) %></div>
+      <% end %>
       <%= @inner_content %>
     </main>
     <footer>
